@@ -6,6 +6,7 @@ const specify = require("mocha-sugar-free").specify;
 
 const jsdom = require("../..");
 
+// TODO NEWAPI: this is consolidated into newapi tests
 describe("jsdom/node-location", () => {
   specify("jsdom.nodeLocation on an element", () => {
     const document = jsdom.jsdom("<p>Hello</p>");

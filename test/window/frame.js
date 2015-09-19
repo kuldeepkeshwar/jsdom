@@ -15,8 +15,7 @@ exports.tests = {
       </head><body></body></html>',
       {
         features : {
-          FetchExternalResources: ['script','iframe'],
-          ProcessExternalResources: ['script','iframe']
+          FetchExternalResources: ['script','iframe']
         }
       }).defaultView;
     window.iframe.onload = function() {
@@ -45,8 +44,7 @@ exports.tests = {
       {
         url : toFileUrl("test.html"),
         features : {
-          FetchExternalResources: ['script','iframe'],
-          ProcessExternalResources: ['script','iframe']
+          FetchExternalResources: ['script','iframe']
         }
       }).defaultView;
     window.document.onload = function(){
@@ -60,8 +58,7 @@ exports.tests = {
     var iframeParentPath = path.resolve(__dirname, 'files', 'iframe_parent.html');
     var doc = jsdom.jsdom(fs.readFileSync(iframeParentPath, 'utf8'), {
       features : {
-        FetchExternalResources   : ['script', 'iframe'],
-        ProcessExternalResources : ['script', 'iframe']
+        FetchExternalResources   : ['script', 'iframe']
       },
       url : toFileUrl(__filename)
     });
@@ -76,8 +73,7 @@ exports.tests = {
     var iframeParentPath = path.resolve(__dirname, 'files', 'iframe_parent.html');
     var doc = jsdom.jsdom(fs.readFileSync(iframeParentPath, 'utf8'), {
       features : {
-        FetchExternalResources   : ['script', 'iframe'],
-        ProcessExternalResources : ['script', 'iframe']
+        FetchExternalResources   : ['script', 'iframe']
       },
       url : toFileUrl(__filename)
     });
@@ -97,8 +93,7 @@ exports.tests = {
   'test iframe load event' : function(test) {
     var doc = jsdom.jsdom(null, {
       features : {
-        FetchExternalResources   : ['script', 'iframe'],
-        ProcessExternalResources : ['script', 'iframe']
+        FetchExternalResources   : ['script', 'iframe']
       },
       url : toFileUrl(__filename)
     });
@@ -127,8 +122,7 @@ exports.tests = {
     var htmlPath = path.resolve(__dirname, 'files', 'iframe_parent.html');
     var doc = jsdom.jsdom(fs.readFileSync(htmlPath, 'utf8'), {
       features : {
-        FetchExternalResources   : ['script', 'iframe'],
-        ProcessExternalResources : ['script', 'iframe']
+        FetchExternalResources   : ['script', 'iframe']
       },
       url : toFileUrl(__filename)
     });
@@ -148,8 +142,7 @@ exports.tests = {
     var htmlPath = path.resolve(__dirname, 'files', 'iframe_parent.html');
     var doc = jsdom.jsdom(fs.readFileSync(htmlPath, 'utf8'), {
       features : {
-        FetchExternalResources   : ['script', 'iframe'],
-        ProcessExternalResources : ['script', 'iframe']
+        FetchExternalResources   : ['script', 'iframe']
       },
       url : toFileUrl(__filename)
     });
@@ -169,8 +162,7 @@ exports.tests = {
   'get iframe window via indexed frames access with setAttributeNode' : function(test) {
     var doc = jsdom.jsdom("<html><head></head><body><iframe name='simpleIFrame' id='simpleIFrameID'></iframe></body></html>", {
       features : {
-        FetchExternalResources   : ['script', 'iframe'],
-        ProcessExternalResources : ['script', 'iframe']
+        FetchExternalResources   : ['script', 'iframe']
       },
       url : toFileUrl(__filename)
     });
@@ -196,8 +188,7 @@ exports.tests = {
     var htmlPath = path.resolve(__dirname, 'files', 'iframe_parent.html');
     var doc = jsdom.jsdom(fs.readFileSync(htmlPath, 'utf8'), {
       features : {
-        FetchExternalResources   : ['script', 'iframe'],
-        ProcessExternalResources : ['script', 'iframe']
+        FetchExternalResources   : ['script', 'iframe']
       },
       url : toFileUrl(__filename)
     });
@@ -219,8 +210,7 @@ exports.tests = {
     var htmlPath = path.resolve(__dirname, 'files', 'iframe_parent.html');
     var doc = jsdom.jsdom(fs.readFileSync(htmlPath, 'utf8'), {
       features : {
-        FetchExternalResources   : ['script', 'iframe'],
-        ProcessExternalResources : ['script', 'iframe']
+        FetchExternalResources   : ['script', 'iframe']
       },
       url : toFileUrl(__filename)
     });
@@ -235,8 +225,7 @@ exports.tests = {
     var htmlPath = path.resolve(__dirname, 'files', 'iframe_parent.html');
     var doc = jsdom.jsdom(fs.readFileSync(htmlPath, 'utf8'), {
       features : {
-        FetchExternalResources   : ['script', 'iframe'],
-        ProcessExternalResources : ['script', 'iframe']
+        FetchExternalResources   : ['script', 'iframe']
       },
       url : toFileUrl(__filename)
     });
@@ -270,8 +259,7 @@ exports.tests = {
     var htmlPath = path.resolve(__dirname, 'files', 'multiple_iframe_parent.html');
     var doc = jsdom.jsdom(fs.readFileSync(htmlPath, 'utf8'), {
       features : {
-        FetchExternalResources   : ['script', 'iframe'],
-        ProcessExternalResources : ['script', 'iframe']
+        FetchExternalResources   : ['script', 'iframe']
       },
       url : toFileUrl(__filename)
     });
@@ -297,8 +285,7 @@ exports.tests = {
     var htmlPath = path.resolve(__dirname, 'files', 'multiple_iframe_parent.html');
     var doc = jsdom.jsdom(fs.readFileSync(htmlPath, 'utf8'), {
       features : {
-        FetchExternalResources   : ['script', 'iframe'],
-        ProcessExternalResources : ['script', 'iframe']
+        FetchExternalResources   : ['script', 'iframe']
       },
       url : toFileUrl(__filename)
     });
@@ -318,8 +305,7 @@ exports.tests = {
   'test iframe without src' : function (test) {
     var doc = jsdom.jsdom(null, {
       features : {
-        FetchExternalResources   : ['script', 'iframe'],
-        ProcessExternalResources : ['script', 'iframe']
+        FetchExternalResources   : ['script', 'iframe']
       },
       url : toFileUrl(__filename)
     });
@@ -342,8 +328,7 @@ exports.tests = {
   'test setting src multiple times' : function (test) {
     var doc = jsdom.jsdom(null, {
       features : {
-        FetchExternalResources   : ['script', 'iframe'],
-        ProcessExternalResources : ['script', 'iframe']
+        FetchExternalResources   : ['script', 'iframe']
       },
       url : toFileUrl(__filename)
     });
@@ -361,8 +346,7 @@ exports.tests = {
     var htmlPath = path.resolve(__dirname, 'files', 'frameset_parent.html');
     var doc = jsdom.jsdom(fs.readFileSync(htmlPath, 'utf8'), {
       features : {
-        FetchExternalResources   : ['script', 'frame'],
-        ProcessExternalResources : ['script', 'frame']
+        FetchExternalResources   : ['script', 'frame']
       },
       url : toFileUrl(__filename)
     });

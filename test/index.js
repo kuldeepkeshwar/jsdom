@@ -1,7 +1,15 @@
 "use strict";
 
+require("./newapi1/basics.js");
+require("./newapi1/fragment.js");
+require("./newapi1/from-file.js");
+require("./newapi1/from-url.js");
+require("./newapi1/methods.js");
+require("./newapi1/options.js");
+
 require("./jsdom/cancel-requests.js");
 require("./jsdom/cookie.js");
+
 require("./jsdom/encoding.js");
 require("./jsdom/env.js");
 require("./jsdom/inside-worker-smoke-tests.js");

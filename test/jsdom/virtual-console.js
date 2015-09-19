@@ -212,7 +212,7 @@ describe("jsdom/virtual-console", () => {
           assert.fail("should not call error");
         }
       },
-      { omitJsdomErrors: true }
+      { omitJSDOMErrors: true }
     );
 
     virtualConsole.emit("jsdomError", e);

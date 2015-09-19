@@ -495,7 +495,7 @@ var document = jsdom.jsdom(undefined, {
 });
 ```
 
-By default this will forward all `"jsdomError"` events to `console.error`. If you want to maintain only a strict one-to-one mapping of events to method calls, and perhaps handle `"jsdomErrors"` yourself, then you can do `sendTo(console, { omitJsdomErrors: true })`.
+By default this will forward all `"jsdomError"` events to `console.error`. If you want to maintain only a strict one-to-one mapping of events to method calls, and perhaps handle `"jsdomErrors"` yourself, then you can do `sendTo(console, { omitJSDOMErrors: true })`.
 
 #### Create an event emitter for a window's console
 

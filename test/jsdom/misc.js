@@ -322,6 +322,7 @@ describe("jsdom/miscellaneous", () => {
     testBase();
   });
 
+  // TODO NEWAPI: these tests can be consolidated into newapi tests
   specify("jsdom.changeURL()", () => {
     const window = jsdom.jsdom("", { url: "http://example.com/" }).defaultView;
     assert.strictEqual(window.document.URL, "http://example.com/");

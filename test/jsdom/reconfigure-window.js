@@ -6,6 +6,7 @@ const specify = require("mocha-sugar-free").specify;
 
 const jsdom = require("../..");
 
+// TODO NEWAPI: this is consolidated into newapi tests
 describe("jsdom/reconfigure-window", () => {
   specify("Can reconfigure top", () => {
     const window = jsdom.jsdom().defaultView;
