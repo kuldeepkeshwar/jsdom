@@ -1,6 +1,6 @@
 # jsdom
 
-jsdom is a pure-JavaScript implementation of many web standards, notably [DOM](https://dom.spec.whatwg.org/) and [HTML](https://html.spec.whatwg.org/multipage/), for use with Node.js. In general, the goal of the project is to emulate some subset of a web browser, with notable limitations such as a lack of support for navigation or anything that requires visual layout.
+jsdom is a pure-JavaScript implementation of many web standards, notably [DOM](https://dom.spec.whatwg.org/) and [HTML](https://html.spec.whatwg.org/multipage/), for use with Node.js. In general, the goal of the project is to emulate enough of a subset of a web browser to be useful for testing and scraping real-world web applications.
 
 The latest versions of jsdom require Node.js v6 or newer. (Versions of jsdom below v10 still work with Node.js v4, but are unsupported.)
 
@@ -225,7 +225,12 @@ The built-in `vm` module of Node.js allows you to create `Script` instances, whi
 const { Script } = require("vm");
 
 const dom = new JSDOM(``, { runScripts: "outside-only" });
-const s = new Script("if (!this.ran) { this.ran = 0; } ++this.ran;");
+const s = new Script(
+  `if (!this.ran) {
+    this.ran = 0;
+  }
+
+  ++this.ran;`);
 
 dom.runVMScript(s);
 dom.runVMScript(s);
@@ -344,13 +349,13 @@ In the meantime, please feel free to use the old jsdom API to get access to this
 
 ### Limitations of jsdom
 
-Although we enjoy adding new features to jsdom and keeping it up to date with the latest web specs, it has many missing APIs. Please feel free to file an issue with a feature for anything missing, but we're a small a busy team, so a pull request might work even better.
+Although we enjoy adding new features to jsdom and keeping it up to date with the latest web specs, it has many missing APIs. Please feel free to file an issue for anything missing, but we're a small and busy team, so a pull request might work even better.
 
 Beyond just features that we haven't gotten to yet, there are two major features that are currently outside the scope of jsdom. These are:
 
-- **Navigation**: the ability to change the global object, and everything in it, when clicking a link or assigning `location.href` or similar.
+- **Navigation**: the ability to change the global object, and all other objects, when clicking a link or assigning `location.href` or similar.
 - **Layout**: the ability to calculate where elements will be visually laid out as a result of CSS, which impacts methods like `getBoundingClientRects()` or properties like `offsetTop`.
 
-Currently jsdom has dummy behaviors for some aspects of these features, such as sending a "not implemented" warning to the virtual console for navigation, or returning zeros for many layout-related properties.
+Currently jsdom has dummy behaviors for some aspects of these features, such as sending a "not implemented" `"jsdomError"` to the virtual console for navigation, or returning zeros for many layout-related properties.
 
-Often you can work around these limitations in your code, e.g. by creating new `JSDOM` instances for each page you navigate to, or using `Object.defineProperty()` to change what various layout-related getters and methods return.
+Often you can work around these limitations in your code, e.g. by creating new `JSDOM` instances for each page you "navigate" to during a crawl, or using `Object.defineProperty()` to change what various layout-related getters and methods return.
