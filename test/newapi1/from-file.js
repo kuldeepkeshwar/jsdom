@@ -9,7 +9,7 @@ const { JSDOM } = require("../../lib/newapi1.js");
 require("chai").use(require("../chai-helpers.js"));
 
 function fromFixtureFile(fixture, options) {
-  return JSDOM.fromFile(path.resolve(__dirname, "fixtures", fixture), options);
+  return JSDOM.fromFile(path.resolve(__dirname, "fixtures/from-file", fixture), options);
 }
 
 describe("newapi1: JSDOM.fromFile", () => {
