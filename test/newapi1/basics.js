@@ -37,4 +37,11 @@ describe("newapi1 first argument", () => {
     assert.strictEqual(document2.innerHTML, document3.innerHTML);
     assert.strictEqual(document3.innerHTML, document4.innerHTML);
   });
+
+  it("should coerce null to a string", () => {
+    const document1 = (new JSDOM(null)).window.document;
+    const document2 = (new JSDOM("null")).window.document;
+
+    assert.strictEqual(document1.innerHTML, document2.innerHTML);
+  });
 });
