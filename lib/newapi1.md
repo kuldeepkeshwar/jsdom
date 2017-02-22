@@ -331,6 +331,12 @@ console.log(frag.firstChild.outerHTML); // logs "<p>Hello</p>"
 
 jsdom includes support for using the [`canvas`](https://www.npmjs.com/package/canvas) package to extend any `<canvas>` elements with the canvas API. To make this work, you need to include `canvas` as a dependency in your project, as a peer of `jsdom`. If jsdom can find the `canvas` package, it will use it, but if it's not present, then `<canvas>` elements will behave like `<div>`s.
 
+### Encoding sniffing
+
+In addition to supplying a string, the `JSDOM` constructor can also be supplied binary data, in the form of a Node.js [`Buffer`](https://nodejs.org/docs/latest/api/buffer.html) or a standard JavaScript binary data type like `ArrayBuffer`, `Uint8Array`, `DataView`, etc. When this is done, jsdom will [sniff the encoding](https://html.spec.whatwg.org/multipage/syntax.html#encoding-sniffing-algorithm) from the supplied bytes, scanning for `<meta charset>` tags just like a browser does.
+
+This encoding sniffing also applies to `JSDOM.fromFile()` and `JSDOM.fromURL()`. In the latter case, just as in a browser, any `Content-Type` headers sent with the response will take priority.
+
 ### Closing down a jsdom
 
 Timers in the jsdom (set by `window.setTimeout()` or `window.setInterval()`) will, by definition, execute code in the future in the context of the window. Since there is no way to execute code in the future without keeping the process alive, outstanding jsdom timers will keep your Node.js process alive. Similarly, since there is no way to execute code in the context of an object without keeping that object alive, outstanding jsdom timers will prevent garbage collection of the window on which they are scheduled.
